@@ -38,7 +38,7 @@
              <td> <?php echo $row["username"] ?></td>
              <td> <?php echo $row["status"]?></td>
              <td> Edit</td>
-             <td> Delete </td>
+             <td><a href="delete.php/?id=<?php echo $row["id"]?>">delete </a></td>
          </tr>
          <?php
     }

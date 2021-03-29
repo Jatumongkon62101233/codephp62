@@ -25,6 +25,8 @@
               <td> UserID </td>
               <td> UserName </td>
               <td> Status </td>
+              <td> Edit </td>
+              <td> Delete </td>
           </tr>
     <?php
      while ($row = $result->fetch_array()) {
@@ -35,6 +37,8 @@
              <td> <?php echo $row["id"]?></td>
              <td> <?php echo $row["username"] ?></td>
              <td> <?php echo $row["status"]?></td>
+             <td> Edit</td>
+             <td> Delete </td>
          </tr>
          <?php
     }

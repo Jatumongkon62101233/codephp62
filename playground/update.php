@@ -1,13 +1,29 @@
 <?php
  require_once 'connectdb.php';
+ $id = "";
+ $Username = "";
+ $status ="";
+
+ if ($_SERVER["REQUEST_METHOD"] == "GET") {
+    $id = "" ;
+    if(isset($_GET["id"]) && $_GET["id"] != ''){
+        $id = $_GET["id"];
+        $Username = $_GET["Username"];
+        $status = $_GET["status"];
+
+    }
+    else {
+        echo "id is null";
+    }
+   }
  if ($_SERVER["REQUEST_METHOD"] == "POST") {
  $frmUsername = $frmUserpassword = "" ;
  $frmUsername = $_POST["username"];
  $frmUserpassword = $_POST["password"];
 
  if ($frmUsername && $frmUserpassword) {
-     $strSQL = "INSERT INTO `user`(`username`, `password_hash`, status)";
-     $strSQL .= " VALUES ('" . $frmUsername . "','" . $frmUserpassword . "',0 )";
+     $strSQL = "UPDATE `user` SET `id`=[value-1],`username`=[value-2],`password_hash`=[value-3],`status`=[value-4] WHERE id=".$id;
+
      $result = $myconn->query($strSQL);
      if ($result)
      {
@@ -43,20 +59,19 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
     <title>Document</title>
 </head>
 <body>
-<form action="insert.php" method="post">
+<form action="update.php" method="post">
     <table border="1"
     <tr>
         <td>username</td>
         <td>
-        <input type ="text" name="username" id="username"></td>
+        <input type ="text" name="username" value="<?= $Username ?>"></td>
     </tr>
     <tr>
-        <td>password</td>
-        <td><input type="password" name="password" id="password"> </td>
+        <td>Status</td>
+        <td><input type="text" name="status" value="<?= $status ?>"></td>
     </tr>
     <tr>
         <td colspan="2"><input type="submit" value="save"></td>

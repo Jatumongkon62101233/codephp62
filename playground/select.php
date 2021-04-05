@@ -39,7 +39,7 @@
              <td> <?php echo $row["username"] ?></td>
              <td> <?php echo $row["status"]?></td>
 
-             <td> <a href="update.php?id=<?= $row["id"]?>&username=<?= $row["username"]?>&status=<? $row["status"]?><i class="fas fa-edit"></i></td>
+             <td> <a href="update.php?id=<?= $row["id"]?>&username=<?= $row["username"]?>&status=<?= $row["status"]?>"><i class="fas fa-edit"></i></td>
              <td><a href="delete.php?id=<?php echo $row["id"]?>"><i class="fas fa-trash"></i></a></td>
          </tr>
          <?php

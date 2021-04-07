@@ -1,4 +1,5 @@
 <?php
+include 'template/header.html';
  require_once 'connectdb.php';
  if ($_SERVER["REQUEST_METHOD"] == "POST") {
  $frmUsername = $frmUserpassword = "" ;
@@ -47,21 +48,20 @@
     <title>Document</title>
 </head>
 <body>
+
 <form action="insert.php" method="post">
-    <table border="1"
-    <tr>
-        <td>username</td>
-        <td>
-        <input type ="text" name="username" id="username"></td>
-    </tr>
-    <tr>
-        <td>password</td>
-        <td><input type="password" name="password" id="password"> </td>
-    </tr>
-    <tr>
-        <td colspan="2"><input type="submit" value="save"></td>
-    </tr>
-    </table>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Email address</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="username">
+    <small id="emailHelp" class="form-text text-muted">เเขบ.</small>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Password</label>
+    <input type="password" class="form-control" id="exampleInputPassword1" name="password">
+  </div>
+  
+  </div>
+  <button type="submit" class="btn btn-primary">บันทึก</button>
 </form>
 </body>
 </html>

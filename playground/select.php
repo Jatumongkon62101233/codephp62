@@ -1,4 +1,5 @@
 <?php
+    include 'template/header.html';
     require_once 'connectdb.php';
     // else
     
@@ -21,14 +22,18 @@
     </head>
     <body>
 
-       <table  border="5" width="100%">
+       <table  class="table">
+       <thead class="thead-dark">
           <tr>
-              <td> UserID </td>
-              <td> UserName </td>
-              <td> Status </td>
-              <td> Edit </td>
-              <td> Delete </td>
+              <th> UserID </th>
+              <th> UserName </th>
+              <th> Status </th>
+              <th> Edit </th>
+              <th> Delete </th>
           </tr>
+       </thead>
+
+       <tbody>
     <?php
      while ($row = $result->fetch_array()) {
         // echo $row["username"] . "<br>";
@@ -45,7 +50,14 @@
          <?php
     }
     ?>
+     </tbody>
+     
         </table>
+        <a href="insert.php">เพิ่มผู้ใช้</a>
+        <?php
+
+        include 'template/header.html';
+        ?>
     </body>
 
     </html>
